@@ -165,27 +165,65 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-iOS13-新特新" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/test/">文章</a>
+      <a class="article-title" href="/2020/03/25/iOS13-%E6%96%B0%E7%89%B9%E6%96%B0/">iOS13 新特性</a>
     </h1>
   
 
         
-        <a href="/2020/03/24/test/" class="archive-article-date">
-  	<time datetime="2020-03-24T14:02:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+        <a href="/2020/03/25/iOS13-%E6%96%B0%E7%89%B9%E6%96%B0/" class="archive-article-date">
+  	<time datetime="2020-03-25T01:37:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="将进酒"><a href="#将进酒" class="headerlink" title="将进酒"></a>将进酒</h3><h5 id="唐代：李白"><a href="#唐代：李白" class="headerlink" title="唐代：李白"></a>唐代：李白</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">君不见黄河之水天上来，奔流到海不复回。</span><br><span class="line">君不见高堂明镜悲白发，朝如青丝暮成雪。</span><br><span class="line">人生得意须尽欢，莫使金樽空对月。</span><br><span class="line">天生我材必有用，千金散尽还复来。</span><br><span class="line">烹羊宰牛且为乐，会须一饮三百杯。</span><br><span class="line">岑夫子，丹丘生，将进酒，杯莫停。</span><br><span class="line">与君歌一曲，请君为我倾耳听。(倾耳听 一作：侧耳听)</span><br><span class="line">钟鼓馔玉不足贵，但愿长醉不愿醒。(不足贵 一作：何足贵；不愿醒 一作：不复醒)</span><br><span class="line">古来圣贤皆寂寞，惟有饮者留其名。(古来 一作：自古；惟 通：唯)</span><br><span class="line">陈王昔时宴平乐，斗酒十千恣欢谑。</span><br><span class="line">主人何为言少钱，径须沽取对君酌。</span><br><span class="line">五花马、千金裘，呼儿将出换美酒，与尔同销万古愁。</span><br></pre></td></tr></table></figure>
+        <p>iOS13系统已经发布一段时间，随着开发的版本迭代及工具更新，越来越多的问题暴漏出来。这里抽部分的时间进行相关特性的总结及针对性的处理方案。</p>
+<h5 id="特性一-Dark-Mode-暗黑模式"><a href="#特性一-Dark-Mode-暗黑模式" class="headerlink" title="特性一 Dark Mode 暗黑模式"></a>特性一 Dark Mode 暗黑模式</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">黑暗模式的适应主要是进行图片和颜色的调整，准配两套的UI，进行相对应的代码配置，在系统切换时应用也会跟着自动切换。具体的适应过程主要看下面的链接。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://www.jianshu.com/p/9bec6abff833" target="_blank" rel="noopener">深夜模式</a></p>
+<h5 id="特性二-Dark-Mode-Status-Bar-更新"><a href="#特性二-Dark-Mode-Status-Bar-更新" class="headerlink" title="特性二 Dark Mode Status Bar 更新"></a>特性二 Dark Mode Status Bar 更新</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">Status Bar 两种状态:    </span><br><span class="line">  1 UIStatusBarStyleDefault  文字黑色   </span><br><span class="line">  2 UIStatusBarStyleLightContent 白色文字</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">Status Bar有三种状态：</span><br><span class="line">  1 UIStatusBarStyleDefault 自动选择黑色或白色</span><br><span class="line">  2 UIStatusBarStyleDarkContent 文字黑色</span><br><span class="line">  3 UIStatusBarStyleLightContent 文字白色</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  <span class="keyword">if</span> (@available(iOS 13.0, *)) &#123;</span><br><span class="line">    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDarkContent];</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://www.jianshu.com/p/2036e821e912" target="_blank" rel="noopener">Status Bar</a></p>
+<h5 id="特性三-UIActivityIndicatorView视图加载"><a href="#特性三-UIActivityIndicatorView视图加载" class="headerlink" title="特性三 UIActivityIndicatorView视图加载"></a>特性三 UIActivityIndicatorView视图加载</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">UIActivityIndicatorView样式:</span><br><span class="line">  1 UIActivityIndicatorViewStyleGray 灰色</span><br><span class="line">  2 UIActivityIndicatorViewStyleWhite 白色</span><br><span class="line">  3 UIActivityIndicatorViewStyleWhiteLarge 白色(大型)</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">UIActivityIndicatorView样式:</span><br><span class="line">  1 UIActivityIndicatorViewStyleLarge (大型)</span><br><span class="line">  2 UIActivityIndicatorViewStyleMedium (中型)</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  同上进行iOS系统的判断，进行不同的版本不同的处理方式。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://www.jianshu.com/p/2036e821e912" target="_blank" rel="noopener">UIActivityIndicatorView</a></p>
+<h5 id="特性四-模态弹出presentViewcontroller"><a href="#特性四-模态弹出presentViewcontroller" class="headerlink" title="特性四 模态弹出presentViewcontroller"></a>特性四 模态弹出presentViewcontroller</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  UIModalPresentationStyle默认的是UIModalPresentationFullScreen。</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  UIModalPresentationStyle默认的是UIModalPresentationAutomatic。</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  可以在公共父类的init中设置UIModalPresentationStyle为UIModalPresentationFullScreen。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://www.jianshu.com/p/46c7e540197a" target="_blank" rel="noopener">模态弹出</a></p>
+<h5 id="特性五-KVC不允许使用私有的方法"><a href="#特性五-KVC不允许使用私有的方法" class="headerlink" title="特性五 KVC不允许使用私有的方法"></a>特性五 KVC不允许使用私有的方法</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  比如UITextField会crash:[textF setValue:DescrbeColor forKeyPath:@<span class="string">"_placeholderLabel.textColor"</span>]。</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  禁止使用相关的KVC方法。</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  这里需要我们排查代码中用到KVC的地方，然后进行不同情况下的合理处理。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://www.jianshu.com/p/46c7e540197a" target="_blank" rel="noopener">KVC禁用</a></p>
+<h5 id="特性六-新建工程拥有两个代理"><a href="#特性六-新建工程拥有两个代理" class="headerlink" title="特性六 新建工程拥有两个代理"></a>特性六 新建工程拥有两个代理</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  拥有一个代理类AppDelegate。</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  拥有两个代理AppDelegate和SceneDelegate。</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  相对应的生命周期也有变动，以前周期在AppDelegate，iOS13之后生命周期的监听主要在SceneDelegate当中，同时window也在SceneDelegate进行设置。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://blog.csdn.net/qq_18683985/article/details/100588757" target="_blank" rel="noopener">生命周期</a></p>
+<h5 id="特性七-启动图适配"><a href="#特性七-启动图适配" class="headerlink" title="特性七 启动图适配"></a>特性七 启动图适配</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  启动图设置通过LaunchImage来实现。</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  LaunchScreen即将代替LaunchImage来作为启动页。</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  从 iOS 8 的时候，苹果就引入了 LaunchScreen，我们可以设置 LaunchScreen来作为启动页。当然，现在你还可以使用LaunchImage来设置启动图。不过使用LaunchImage的话，要求我们必须提供各种屏幕尺寸的启动图，来适配各种设备，随着苹果设备尺寸越来越多，这种方式显然不够 Flexible。而使用 LaunchScreen的话，情况会变的很简单， LaunchScreen是支持AutoLayout+SizeClass的，所以适配各种屏幕都不在话下。⚠️从2020年4月开始，所有使⽤ iOS13 SDK的 App将必须提供 LaunchScreen，LaunchImage即将退出历史舞台。可以使用Launch Storyboards来进行解决。通过LaunchScreen来设置启动图时，注意iPhoneX的适配问题。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://www.jianshu.com/p/334b209bd734" target="_blank" rel="noopener">启动图</a></p>
+<h5 id="特性八-MPMoviePlayperController已废弃"><a href="#特性八-MPMoviePlayperController已废弃" class="headerlink" title="特性八 MPMoviePlayperController已废弃"></a>特性八 MPMoviePlayperController已废弃</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  播放的视频可以用MPMoviePlayerController。</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  需要使用AVKit中的AVPlayerViewController来达到播放的目的。</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  MPMoviePlayerController is no longer available. Use AVPlayerViewController <span class="keyword">in</span> AVKit.在iOS13中对于MPMoviePlayerController使用的废弃,需要使用AVKit中的AVPlayerViewController来达到播放的目的。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://blog.csdn.net/qq_23091121/article/details/101023714" target="_blank" rel="noopener">MPMoviePlayperController</a></p>
+<h5 id="特性九-UISegmentedControl样式圆角变动"><a href="#特性九-UISegmentedControl样式圆角变动" class="headerlink" title="特性九 UISegmentedControl样式圆角变动"></a>特性九 UISegmentedControl样式圆角变动</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  设置圆角的方式：</span><br><span class="line">  testSegmentedControl.layer.masksToBounds = <span class="literal">true</span></span><br><span class="line">  testSegmentedControl.layer.cornerRadius = 10</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  完全不起作用，后来找到了方法，可以用重写UISegmentedControl的layoutSubviews方法来设置圆角。</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  如果项目有需求一定要在iOS13系统上实现iOS12以前的风格样式，可以自定义一个category来实现。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://www.jianshu.com/p/f9307010d708" target="_blank" rel="noopener">UISegmentedControl</a></p>
+<h5 id="特性十-DeviceToken有变化"><a href="#特性十-DeviceToken有变化" class="headerlink" title="特性十 DeviceToken有变化"></a>特性十 DeviceToken有变化</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  第三方推送都是将DeviceToken原始数据丢进去，具体的解析都是第三方内部处理，所以，这些第三方解析DeviceToken的方式正确的话，那就毫无问题。</span><br><span class="line">  以前获取DeviceToken的方式：</span><br><span class="line">  NSString *dt = [deviceToken description];</span><br><span class="line">  dt = [dt stringByReplacingOccurrencesOfString: @<span class="string">"&lt;"</span> withString: @<span class="string">""</span>];</span><br><span class="line">  dt = [dt stringByReplacingOccurrencesOfString: @<span class="string">"&gt;"</span> withString: @<span class="string">""</span>];</span><br><span class="line">  dt = [dt stringByReplacingOccurrencesOfString: @<span class="string">" "</span> withString: @<span class="string">""</span>];</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  NSMutableString *deviceTokenString = [NSMutableString string];</span><br><span class="line">  const char *bytes = deviceToken.bytes;</span><br><span class="line">  NSInteger count = deviceToken.length;</span><br><span class="line">  <span class="keyword">for</span> (int i = 0; i &lt; count; i++) &#123;</span><br><span class="line">      [deviceTokenString appendFormat:@<span class="string">"%02x"</span>, bytes[i]&amp;0x000000FF];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  由于前后DeviceToken已经完全不一样了，所以需要根据不同的方式进行解析才能拿到正确的DeviceToken。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://blog.csdn.net/a18339063397/article/details/97938699" target="_blank" rel="noopener">DeviceToken</a></p>
+<h5 id="特性十一-TabBar红点偏移"><a href="#特性十一-TabBar红点偏移" class="headerlink" title="特性十一 TabBar红点偏移"></a>特性十一 TabBar红点偏移</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  TabBar上图片位置来设置红点位置。</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  在iOS13上会发现显示位置都在最左边去了。</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  遍历UITabBarButton的subViews发现只有在TabBar选中状态下才能取到UITabBarSwappableImageView，解决办法是修改为通过UITabBarButton的位置来设置红点的frame，在选中状态下对tabbar 设置 [tabBar layoutIfNeeded]。</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://blog.csdn.net/a18339063397/article/details/97938699" target="_blank" rel="noopener">红点</a></p>
+<h5 id="特性十二-UISearchBar显示问题"><a href="#特性十二-UISearchBar显示问题" class="headerlink" title="特性十二 UISearchBar显示问题"></a>特性十二 UISearchBar显示问题</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">iOS13前</span><br><span class="line">  SearchBar高度正常和之前为了处理搜索框的黑线问题会遍历后删除UISearchBarBackground。</span><br><span class="line"></span><br><span class="line">iOS13后</span><br><span class="line">  iOS13后SearchBar发现对应的高度只有1px,目前没找到具体导致的原因，同时在iOS13会导致UI渲染失败crash。</span><br><span class="line"></span><br><span class="line">兼容</span><br><span class="line">  处理方案针对高度：使用KVO监听frame值变化后设置去应该显示的高度， 针对黑线处理crash：设置UISearchBarBackground的layer.contents为nil。</span><br><span class="line">  <span class="keyword">for</span> (UIView *view <span class="keyword">in</span> _searchBar.subviews.lastObject.subviews) &#123;</span><br><span class="line">    <span class="keyword">if</span> ([view isKindOfClass:NSClassFromString(@<span class="string">"UISearchBarBackground"</span>)]) &#123;</span><br><span class="line">        // [view removeFromSuperview];</span><br><span class="line">        view.layer.contents = nil;</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>链接: <a href="https://www.jianshu.com/p/4654f8f6e16e" target="_blank" rel="noopener">UISearchBar</a></p>
+<h5 id="特性十三-三方库维护"><a href="#特性十三-三方库维护" class="headerlink" title="特性十三 三方库维护"></a>特性十三 三方库维护</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">随着系统的更新，项目中如果使用到三方的功能，需要进行及时的到各个三方平台上遵照文档进行对应的更新，避免造成崩溃等。</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -198,82 +236,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/24/hello-world/" class="archive-article-date">
-  	<time datetime="2020-03-24T13:20:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/25/iOS13-%E6%96%B0%E7%89%B9%E6%96%B0/">展开全文 >></a>
         </p>
       
 
